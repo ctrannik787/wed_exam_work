@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Языковая школа</title>
+        <!-- Bootstrap CSS -->
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Подключение внешнего CSS -->
+         <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <header class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="logo.png" alt="Логотип" width="40" height="40" class="d-inline-block align-top me-2" />
+                    <span class="fs-4">Языковая школа</span>
+                </a>
+                <nav class="navbar-nav ms-auto">
+                    <a class="nav-link" href="#courses">Курсы</a>
+                    <a class="nav-link" href="#about">О нас</a>
+                    <a class="nav-link" href="#contacts">Контакты</a>
+                    <a class="nav-link" href="dashboard.html">Личный кабинет</a>
+                </nav>
+            </div>
+        </header>
+        <div id="notifications"></div>
+        <section id="about" class="container my-5">
+            <h2>О нашей школе</h2>
+            <p>Наша миссия — помочь каждому студенту добиться успеха в изучении иностранного языка. Предлагаем современные курсы, индивидуальные занятия и культурные мероприятия.</p>
+        </section>
+        <section id="advantages" class="container my-5">
+            <h2>Преимущества изучения иностранного языка</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Расширение горизонтов</h4>
+                    <p>Обучение новым культурам и возможностям путешествий.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Карьерный рост</h4>
+                    <p>Много международных компаний ценят знание языков.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Личное развитие</h4>
+                    <p>Развитие коммуникативных навыков и уверенность в себе.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Курсы -->
+         <section id="courses" class="container my-5">
+            <h2>Доступные курсы</h2>
+            <form class="row g-3 mb-4" id="courseFilters">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Поиск по названию" id="filterName" />
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" id="filterLevel">
+                        <option value="">Все уровни</option>
+                        <option value="Beginner">Начальный</option>
+                        <option value="Intermediate">Средний</option>
+                        <option value="Advanced">Продвинутый</option>
+                    </select>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button type="button" class="btn btn-primary" id="applyCourseFilters">Применить фильтры</button>
+                </div>
+            </form>
+            <div class="table-responsive" id="coursesTableContainer">
+                <table class="table table-bordered table-hover" id="coursesTable">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Описание</th>
+                            <th>Преподаватель</th>
+                            <th>Уровень</th>
+                            <th>Продолжительность (недели)</th>
+                            <th>Стоимость за час</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <nav><ul class="pagination" id="coursesPagination"></ul></nav>
+            </div>
+        </section>
+        <!-- Репетиторы -->
+        <section id="tutors" class="container my-5">
+            <h2>Репетиторы</h2>
+            <form class="row g-3 mb-4" id="tutorFilters">
+                <div class="col-md-6">
+                    <select class="form-select" id="tutorLanguage">
+                        <option value="">Выберите язык</option>
+                        <option value="English">Английский</option>
+                        <option value="Spanish">Испанский</option>
+                        <option value="Russian">Русский</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <select class="form-select" id="tutorLevel">
+                        <option value="">Выберите уровень</option>
+                        <option value="Beginner">Начальный</option>
+                        <option value="Intermediate">Средний</option>
+                        <option value="Advanced">Продвинутый</option>
+                    </select>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="button" class="btn btn-primary" id="filterTutorsBtn">Искать репетиторов</button>
+                </div>
+            </form>
+            <div class="table-responsive" id="tutorsTableContainer">
+                <table class="table table-bordered table-hover" id="tutorsTable">
+                    <thead>
+                        <tr>
+                            <th>Фото</th>
+                            <th>Имя</th>
+                            <th>Опыт (лет)</th>
+                            <th>Языки</th>
+                            <th>Уровень</th>
+                            <th>Цена за час (руб.)</th>
+                            <th>Выбрать</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+        <!-- Контейнер для кнопки "Запрос на занятие" в конце -->
+         <div class="container mb-4 text-center" id="bottomRequestBtnContainer"></div>
+         <!-- Футер -->
+          <section id="contacts">
+            <footer class="text-center">
+                <div class="container">
+                    <p>Контакты: e-mail: info@school.ru | телефон: +7 123 456 78 90</p>
+                    <p>Социальные сети:
+                        <a href="#">Facebook</a> |
+                        <a href="#">Instagram</a> |
+                        <a href="#">ВКонтакте</a>
+                    </p>
+                </div>
+            </footer>
+        </section>
+        <!-- Модальное окно заявки -->
+        <div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true"></div>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form id="applicationForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="applyModalLabel">Заявка на курс</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Название курса</label>
+                            <input type="text" class="form-control" id="courseName" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Преподаватель</label>
+                            <input type="text" class="form-control" id="teacherName" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label for="startDate" class="form-label">Дата начала</label>
+                            <select class="form-select" id="startDate" required></select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lessonTime" class="form-label">Время занятия</label>
+                            <select class="form-select" id="lessonTime" required></select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Продолжительность курса (недели)</label>
+                            <input type="text" class="form-control" id="durationWeeks" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label for="endDate" class="form-label">Дата окончания</label>
+                            <input type="text" class="form-control" id="endDate" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label for="groupSize" class="form-label">Количество студентов</label>
+                            <input type="number" id="groupSize" min="1" max="20" value="1" class="form-control" required />
+                        </div>
+                        <h5>Дополнительные параметры обучения</h5>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="earlyRegistration" />
+                            <label class="form-check-label" for="earlyRegistration">Скидка за раннюю регистрацию (10%)</label>
+                        </div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="groupEnrollment" />
+                            <label class="form-check-label" for="groupEnrollment">Групповая запись (скидка 15%) при 5 и более человек</label>
+                        </div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="intensiveCourse" />
+                            <label class="form-check-label" for="intensiveCourse">Интенсивный курс (увеличивает стоимость на 20%)</label>
+                        </div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="supplementary" />
+                            <label class="form-check-label" for="supplementary">Дополнительные материалы (+2000 руб. за студента)</label>
+                        </div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="personalized" />
+                            <label class="form-check-label" for="personalized">Индивидуальные занятия (+1500 руб. за неделю)</label>
+                        </div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="excursions" />
+                            <label class="form-check-label" for="excursions">Культурные экскурсии (+25%)</label>
+                        </div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="assessment" />
+                            <label class="form-check-label" for="assessment">Оценка уровня (+300 руб.)</label>
+                        </div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="interactive" />
+                            <label class="form-check-label" for="interactive">Доступ к платформе (+50%)</label>
+                        </div>
+                        <div class="mt-3">
+                            <label class="form-label">Общая стоимость</label>
+                            <input type="text" class="form-control" id="totalCost" readonly />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Модальное окно для запроса к репетитору -->
+         <div class="modal fade" id="requestTutorModal" tabindex="-1" aria-labelledby="requestTutorLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="tutorRequestForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="requestTutorLabel">Запрос на занятие</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Имя</label>
+                                <input type="text" class="form-control" id="requestName" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Электронная почта</label>
+                                <input type="email" class="form-control" id="requestEmail" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Сообщение</label>
+                                <textarea class="form-control" id="requestMessage" rows="3" required></textarea>
+                            </div>
+                            <input type="hidden" id="hiddenTutorId" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Скрипты -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

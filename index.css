@@ -1,0 +1,11 @@
+#notifications {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 1050;
+  min-width: 250px;
+}
+footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+}
